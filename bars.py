@@ -41,6 +41,15 @@ def get_smallest_bar():
             # print('-min- ' + seatsMinBarName + ' ' + str(seatsMin))
 
 
+def find_range(bar_loc_a, bar_loc_b):
+    global locationA
+    global locationB
+    range = sqrt(((bar_loc_a - locationA) ** 2) + ((bar_loc_b - locationB) ** 2))
+    print(range)
+    return range
+
+
+
 def get_closest_bar():
     global bars, nearestBar, nearestBarRange
     for bar in bars:
@@ -48,13 +57,6 @@ def get_closest_bar():
         if range_finded < nearestBarRange:
             nearestBar = bar['Name']
             nearestBarRange = range_finded
-
-
-def find_range(bar_loc_a, bar_loc_b):
-    global locationA
-    global locationB
-    range = sqrt(((bar_loc_a - locationA) ** 2) + ((bar_loc_b - bar_loc_a) ** 2))
-    return range
 
 
 if __name__ == '__main__':
@@ -73,3 +75,4 @@ if __name__ == '__main__':
     print('Most seats in bar ' + seatsMaxBarName + ' with ' + str(seatsMax) + ' seats')
     print('Minimum seats in bar ' + seatsMinBarName + ' with ' + str(seatsMin) + ' seats')
     print('Nearest bar is ' + str(nearestBar))
+    print('Nearest bar range: ' + str(nearestBarRange))
